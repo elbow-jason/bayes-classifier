@@ -18,19 +18,19 @@ class BagOfWords
     BagOfWords.new(new_bag)
   end
 
+  def words
+    @bag.keys
+  end
+
+  def length
+    @bag.length
+  end
+
   def add_word(word)
+    if @bag.has_key?(word)
+      @bag[word] += 1
+    else
+      @bag[word] = 1
+    end
   end
 end
-
-x = BagOfWords.new({"yea" => 1})
-y = BagOfWords.new({"yea" => 2, "nope" => 4})
-
-pp x
-pp y
-
-z = x + y
-
-pp z
-puts z.word_count
-
-
